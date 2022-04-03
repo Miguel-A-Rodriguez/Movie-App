@@ -25,7 +25,7 @@ export default function MovieSelect() {
   // Use this log to check if movies are properly being added to the addFavoriteMovie State
   console.log(favoriteMovieState)
 
-
+  
 
   return (
     <>
@@ -44,8 +44,12 @@ export default function MovieSelect() {
             </p>
             {/* Must add check to see if item added already exists in the favoriteMovieState*/}
             <p className="movie-container__card__title">{title}</p>
+
+            {favoriteMovieState?.indexOf(state?.results[idx]) == -1 ? (
             <button className='movie-container__button' onClick={() => saveFavoriteMovie(state?.results[idx], key)}>Add to Favorites</button>
-           
+            ) :         
+              <p>Added to Favorites!</p>
+            }
           </div>
         ))}
       </div>
