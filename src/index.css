@@ -1,0 +1,241 @@
+* { 
+	box-sizing: border-box;
+    text-decoration: none;
+}
+html, body {
+	min-height: 100%;
+	background: #fff;
+	color: #000;
+}
+	/* sets the body height of the browser, so that backgrounds and div heights work correctly. Color and background will almost certainly be altered; they are just placeholders */
+	
+body {
+	font-size: 1.4rem;
+	text-rendering: optimizeLegibility;
+}
+	/* sets the base font size for the document; turns on kerning pairs and ligatures */
+	
+body, ul, ol, dl {
+	margin: 0;
+}
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+}
+article, aside, audio, 
+footer, header, nav, section, video {
+	display: block; 
+}
+	
+	/* ensures that older browsers will display HTML5 elements correctly */
+
+@media screen and (min-width: 769px) {
+    .navigation{
+        padding-left: 12.5rem;
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+        background-color: #2b2d42;
+    }
+    .navigation a{
+        margin-right: 7rem;
+        margin-top: 1rem;
+        text-decoration: none;
+        color: white;
+        font-size: 2rem;
+    }
+    
+    /* MovieSelectPage */
+    .movies{
+      padding: 6rem;
+      padding-top: 3rem;
+        margin: 0 auto;
+        
+    }
+   .movies__header{
+    display: flex;
+    flex-direction: column;
+   }
+
+   .movies__header h2{
+    margin-bottom: 2rem
+   }
+   .movies__header h1, h2{
+    margin-left: 6.5rem;
+    color: #344952;
+   }
+   .movie-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    
+   }
+   .movie-container__card{
+    height: 30rem;
+    margin: 0 auto;
+    margin-bottom: 10rem;
+   }
+   .movie-container__card__img {
+    text-align: center;
+   }
+   .movie-container__card__img img{
+    width: 100%;
+    max-width: 300px;
+    height: 25rem;
+    object-fit: cover;
+    border-radius: .8rem;
+    box-shadow: 0rem 0.5rem 2rem;
+    text-align: center;
+   }
+   .movie-container__card__img img:hover{
+    position:relative;
+    top:-25px;
+    left: 0px;
+    width:300px;
+    height:auto;
+    display:block;
+    z-index:999;
+   }
+   .movie-container__button {
+    background: #FC6E51;
+    min-width: 300px;
+    min-height: 60px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 22px;
+    text-transform: uppercase;
+    letter-spacing: 1.3px;
+    font-weight: 700;
+    color: white;
+    background: linear-gradient(90deg, #FC6E51 0%, #FC6E51 100%);
+    border: none;
+    border-radius: 1000px;
+    /* box-shadow: 12px 12px 24px rgba(79,209,197,.64); */
+    transition: all 0.3s ease-in-out 0s;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    padding: 10px;
+    display: block;
+    margin: 0 auto;
+   }
+   .movie-container__button::before{
+    content: '';
+    border-radius: 1000px;
+    min-width: calc(295px + 0px);
+    min-height: calc(36px + 16px);
+    border: 6px solid #FC6E51;
+    /* box-shadow: 0 0 60px #ec5e42; */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: all .3s ease-in-out 0s;
+   }
+   .movie-container__button:hover, .movie-container__button:focus {
+    color: #313133;
+    transform: translateY(-6px);
+  }
+  
+  .movie-container__button::before, .movie-container__button:focus::before {
+    opacity: 1;
+  }
+  
+  .movie-container__button::after {
+    content: '';
+    width: 30px; height: 30px;
+    border-radius: 100%;
+    border: 6px solid #ff6600;
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: ring 1.5s infinite;
+  }
+  
+  .movie-container__button:hover::after, .movie-container__button:focus::after {
+    animation: none;
+    display: none;
+  }
+  
+  @keyframes ring {
+    0% {
+      width: 30px;
+      height: 30px;
+      opacity: 1;
+    }
+    100% {
+      width: 300px;
+      height: 300px;
+      opacity: 0;
+    }
+  }
+   .movie-container__card__date{
+
+   }
+   .movie-container__card__title{
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: bold;
+    line-height: 1.4;
+    color: #344952;
+    word-break: break-all;
+   }
+
+
+    /* Favorites Page Planning to Comeback and use proper bem (many classes re-used in this page
+     due to time restrictions*/
+    .favorites-warning {
+        padding-left: 12.5rem;
+        padding-top: 3.5rem;
+        padding-bottom: 1.5rem;
+        color:#2b2d42;
+        font-size:48px;
+    }
+    .favorite-movie-container__button{
+        color: white;
+        border-radius: 20px;
+        border: 1px solid #FC6E51;
+        background-color: #FC6E51;
+        height: 40px;
+        font-size: 18px;
+        margin-top: 10px;
+        margin-bottom: 40px;
+        padding-left: 15px;
+        padding-right: 15px;
+        font-weight: bolder;
+    }
+    .favorite-movie-container__title {
+        font-size: 1.6rem;
+        font-weight: bold;
+        line-height: 1.4;
+        color: #344952;
+    }
+
+    /* Movie Details Page */
+    .movie-details__container{
+        text-align: left;
+        margin-top: 4rem;
+        font-size: 1.6rem;
+        font-weight: bold;
+        line-height: 1.4;
+        color: #344952;
+        padding-bottom: 50px;
+    }
+    .movie-details__container{
+        text-align: center;
+    }
+    .movie-details__container p:last-child{
+        max-width: 650px;
+        text-align: left;
+        margin: 0 auto;
+        /* padding-bottom: 50px; */
+    }
+    .movie-details__container__text{
+        font-size: 1.6rem;
+        font-weight: bold;
+        line-height: 1.4;
+        color: #344952;
+    }
+}
+
+   
