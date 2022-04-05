@@ -9,6 +9,7 @@ export default function PopularMoviesApiRequest() {
     // redux state
     const state = useSelector ((state) => state.movies)
     const singleFavoriteMovieState = useSelector((state) => state.singleMovie)
+    const favoriteMovieState = useSelector((state) => state.favoriteMovies)
     
     // redux variables
     const dispatch = useDispatch()
@@ -20,6 +21,7 @@ export default function PopularMoviesApiRequest() {
     const [movieDataCheck, setMovieDataCheck] = useState(null);
 
     useEffect(() => {
+       if (favoriteMovieState.length < 1)
       axios.get(`https://api.themoviedb.org/3/movie/popular?`, {
         params: {
           api_key: process.env.REACT_APP_MOVIE_KEY,

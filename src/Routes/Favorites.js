@@ -55,7 +55,7 @@ export default function Favorites() {
               {favoriteMovieState?.map(({ id: favoritesKey, title, overview, release_date, poster_path },idx) => (
                 <article class="movie-container__card" key={favoritesKey}>
                 <>
-                    <Link to="/Details" key={idx}  onClick={() => addOneMovieID(favoritesKey, state?.results[idx])}>
+                    <Link to="/Details" key={idx}  onClick={() => addOneMovieID(favoritesKey, favoriteMovieState[idx])}>
                         <p className='movie-container__card__img'><img  src={`https://image.tmdb.org/t/p/original${poster_path}`}></img></p>
                         <article>
                            
